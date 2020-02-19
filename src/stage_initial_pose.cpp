@@ -23,7 +23,7 @@ void pose_callback(nav_msgs::Odometry::ConstPtr  msg, int i){
         pose.pose.pose.position = msg->pose.pose.position;
         pose.pose.pose.orientation = msg->pose.pose.orientation;
         pose.header.stamp = ros::Time::now();
-        pose.header.frame_id = "/map";
+        pose.header.frame_id = "map";
         pubs[i].publish(pose);
         done[i] = true;
         fprintf(stderr, "\n<!-- robot_%d -->\n", i);

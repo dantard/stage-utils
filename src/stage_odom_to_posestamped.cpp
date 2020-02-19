@@ -12,7 +12,7 @@
 #include <tf/transform_listener.h>
 
 ros::Publisher pub;
-std::string global_frame = "/map", base_link_frame = "base_link", odom_frame = "odom";
+std::string global_frame = "map", base_link_frame = "base_link", odom_frame = "odom";
 
 void pose_callback(nav_msgs::Odometry::ConstPtr  msg){
 
@@ -69,7 +69,7 @@ int main(int argc, char **argv){
 
     ros::Publisher pub2 = n.advertise<geometry_msgs::PoseWithCovarianceStamped>("kk", 1);
     geometry_msgs::PoseWithCovarianceStamped kk;
-    kk.header.frame_id = "/map";
+    kk.header.frame_id = "map";
     pub2.publish(kk);
 
     ros::spin();
